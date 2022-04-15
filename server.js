@@ -39,7 +39,7 @@ app.get('/', (request, response) => {
     //response{} - object that is a collection of properties and methods
     // a response is required for every request
     // response.send() method that closes the response cycle -> send info/data back to browser
-    response.send('Wlecome to Sell-it-Up!');
+    response.send('Welcome to Sell-it-Up!');
 })
 
 
