@@ -28,8 +28,18 @@ app.get('/users/:firstName', (req,res) => {
 // favorite numbers route
 app.get('/numbers/:favorite', (req,res) =>{
     let favNumber = req.params.favorite;
-    console.log(favNumber);
+    // console.log(favNumber);
     res.send(`My favorite number: ${favNumber}`);
+})
+
+// set up home route '/' that sends back message: 'welcome to sell-it-up'
+
+app.get('/', (request, response) => {
+    //consider the objects, request {} object provides info about the request made by the client
+    //response{} - object that is a collection of properties and methods
+    // a response is required for every request
+    // response.send() method that closes the response cycle -> send info/data back to browser
+    response.send('Wlecome to Sell-it-Up!');
 })
 
 
