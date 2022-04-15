@@ -18,11 +18,18 @@ app.get('/products/:productIndex', (req, res) => {
 // greetings route
 app.get('/users/:firstName', (req,res) => {
     // set user variable to req.params.firstName
-    let user = req.params.firstName
+    let user = req.params.firstName;
     //working console log when use nodemon
-    console.log(user)
+    // console.log(user)
     //send back hello user or req.params.firstName
-    res.send(`Hello, ${user}.`)
+    res.send(`Hello, ${user}.`);
+})
+
+// favorite numbers route
+app.get('/numbers/:favorite', (req,res) =>{
+    let favNumber = req.params.favorite;
+    console.log(favNumber);
+    res.send(`My favorite number: ${favNumber}`);
 })
 
 
