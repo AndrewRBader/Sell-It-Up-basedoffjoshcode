@@ -23,10 +23,22 @@
         </section>
 
         <main class="container">
+            	<!-- the remainder of our HTML in index.ejs-->
             <div>
-							 <!-- your content here -->
+                <% for(let idx = 0; idx < products.length; idx++){ %> 
+                <% const product = products[idx] %>
+                <div>
+                    <img src="<%= product.image %>" alt="Placeholder image" />
+                        <div class>
+                            <h3>
+                                <a href="/products/<%= idx %>">
+                                <%= product.name %> 
+                                </a>
+                            </h3>
+                            <p>$<%= product.price %></p>
+                        </div>
+                <% } %>
             </div>
         </main>
-    
 	</body>
 </html>
