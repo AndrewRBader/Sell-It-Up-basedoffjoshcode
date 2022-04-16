@@ -1,47 +1,39 @@
-// boilerplate code for server
 const express = require('express');
 const app = express();
 const PORT = 4000;
 
-//temporary simulated database
-const products = ['t-shirt', 'shoes', 'necklace', 'catfood', 'jump-rope'];
+// temporary, simulated database 
+const products = [
+  {
+    name: 'Internet Friends',
+    price: 29,
+    image:
+      'https://cdn.shopify.com/s/files/1/1297/1509/products/hero1_6de889fb-b540-49e4-b733-3af0baaa7f63_x1440.jpg?v=1571274629',
+  },
+  {
+    name: 'Angry Pants',
+    price: 35,
+    image:
+      'https://cdn.shopify.com/s/files/1/1297/1509/products/HERO_c5b0ec76-ad06-4cc7-a165-6129e11a8ff6_x1440.jpg?v=1571274622',
+  },
+  {
+    name: 'Dead Cool',
+    price: 50,
+    image:
+      'https://cdn.shopify.com/s/files/1/1297/1509/products/hero1_40030160-f468-4d50-8f30-c8b9733ce84e_x1440.jpg?v=1575020412',
+  },
+];
 
-app.get('/products/:productIndex', (req, res) => {
-    //getting console.log to work:
-    // console.log(req.params);
-    // setting up productId  variable
-    let productId = req.params.productIndex;
-    // console.log(productId);
-    res.send(`testing products route for product: ${products[productId]}`);
-})
+// index route 
+// this route will catch GET requests to /products/ and respond with all the products
+app.get('/products/', (req, res) => { 
+	res.send(products);
+});
 
-// greetings route
-app.get('/users/:firstName', (req,res) => {
-    // set user variable to req.params.firstName
-    let user = req.params.firstName;
-    //working console log when use nodemon
-    // console.log(user)
-    //send back hello user or req.params.firstName
-    res.send(`Hello, ${user}.`);
-})
+// show route 
+// this route will catch GET requests to /products/index/ and respond with a single product
+app.get('/products/:productIndex', (req, res) => { 
+	res.send(products[req.params.productIndex]); 
+});
 
-// favorite numbers route
-app.get('/numbers/:favorite', (req,res) =>{
-    let favNumber = req.params.favorite;
-    // console.log(favNumber);
-    res.send(`My favorite number: ${favNumber}`);
-})
-
-// set up home route '/' that sends back message: 'welcome to sell-it-up'
-
-app.get('/', (request, response) => {
-    //consider the objects, request {} object provides info about the request made by the client
-    //response{} - object that is a collection of properties and methods
-    // a response is required for every request
-    // response.send() method that closes the response cycle -> send info/data back to browser
-    response.send('Welcome to Sell-it-Up!');
-})
-
-
-//tell app to listen on port 4000
-app.listen(PORT, () => console.log(`Listening for client requests on port ${PORT}`))
+app.listen(PORT, () => {  console.log(`Listening for client requests on port ${PORT}`);})
