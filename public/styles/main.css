@@ -2,6 +2,12 @@ body {
     background-color: blue;
 }
 
+/* for show.ejs */
 .show-image{
     max-width: 80vw;
+}
+
+/* for index.ejs */
+.card-image{
+    max-width: 300px;
 }
