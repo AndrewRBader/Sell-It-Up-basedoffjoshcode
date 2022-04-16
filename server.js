@@ -7,6 +7,9 @@ const PORT = 4000;
 const products = require('./models/product_model.js')
 // console.log(products)
 
+// application view engine:
+app.set('view engine', 'ejs');
+
 //product show route - GET - one product
 
 app.get('/products/:productId/', (req,res) => {
