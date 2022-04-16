@@ -7,6 +7,11 @@ const PORT = 4000;
 const products = require('./models/product_model.js')
 // console.log(products)
 
+//first middleware - middleware executes for every request
+//express.static helps express find where certain files are located
+app.use(express.static('public'))
+
+
 // application view engine:
 app.set('view engine', 'ejs');
 
