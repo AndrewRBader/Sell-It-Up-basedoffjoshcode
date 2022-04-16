@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" />
     <title>Show Page</title>
+
 </head>
 <body>
     <h1>Show Page</h1>
@@ -15,6 +17,6 @@
     <!-- same idea for the price -->
     <small><%= oneProduct.price %></small>
     <!-- putting in image with alt of indexed products name -->
-    <img src = '<%= oneProduct.image %>' alt = '<%= oneProduct.name %>' />
+    <img class='show-image' src = '<%= oneProduct.image %>' alt = '<%= oneProduct.name %>' />
 </body>
 </html>
