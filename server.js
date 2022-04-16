@@ -21,7 +21,11 @@ app.get('/products/:productId/', (req,res) => {
     let productId = req.params.productId;
     console.log(productId);
     // res.send(products[productId]);
-    res.render('show.ejs')
+    //configuring the context object
+    // setting oneProduct key to equal a products item chosen by product ID
+    // message key is also property of context object
+    const context = {oneProduct: products[productId], message: 'I am the show route'}
+    res.render('show.ejs', context)
 })
 
 // product index route, get all the products
