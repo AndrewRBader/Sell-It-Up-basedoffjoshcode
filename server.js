@@ -14,13 +14,16 @@ app.set('view engine', 'ejs');
 
 app.get('/products/:productId/', (req,res) => {
     let productId = req.params.productId;
-    console.log(productId);
+    // console.log(productId);
     res.send(products[productId]);
 })
 
 // product index route, get all the products
-app.get('/products', (req, res) => {
-    res.send(products);
+app.get('/products/', (req, res) => {
+    // first products is the key, second is the value (the products above holding the array of objects)
+    const context = {products: products};
+    // passing context object through render through index.ejs
+    res.render('index.ejs', context);
 })
 
 //home route '/'
