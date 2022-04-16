@@ -19,8 +19,9 @@ app.set('view engine', 'ejs');
 
 app.get('/products/:productId/', (req,res) => {
     let productId = req.params.productId;
-    // console.log(productId);
-    res.send(products[productId]);
+    console.log(productId);
+    // res.send(products[productId]);
+    res.render('show.ejs')
 })
 
 // product index route, get all the products
