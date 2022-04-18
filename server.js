@@ -56,7 +56,12 @@ app.get('/', (request, response) =>{
 // "create" route (post route) - handles POST requests -> request body (new product data)
 
 app.post('/products', (req, res) => {
-    res.send(req.body);
+    //push new product into products array
+    products.push (req.body);
+    // sends the req.body object from form (products/new)
+    // res.send(req.body);
+    // redirect to appended products page
+    res.redirect('/products');
 })
 
 // express server: initializes the server, app.listen allows computer to receive requests at http://localhost:4000/
