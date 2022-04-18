@@ -4,8 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <script src="/scripts/main.js" defer></script>
-    <title>
-        <%= pageName %>
-    </title>
 
+        <% if (typeof pageName!= 'undefined' ) {%>
+            <title>Sell-It-Up | <%= pageName %> </title>
+        <% } else { %>
+            <title>Sell-It-Up </title>
+        <% } %>
+        
 </head>
