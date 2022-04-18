@@ -56,7 +56,7 @@ app.get('/', (request, response) =>{
 // "create" route (post route) - handles POST requests -> request body (new product data)
 
 app.post('/products', (req, res) => {
-    res.send("hitting post route - products");
+    res.send(req.body);
 })
 
 // express server: initializes the server, app.listen allows computer to receive requests at http://localhost:4000/
