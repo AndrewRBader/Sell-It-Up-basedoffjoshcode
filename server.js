@@ -57,7 +57,8 @@ app.get('/', (request, response) =>{
 
 app.post('/products', (req, res) => {
     //push new product into products array
-    products.push (req.body);
+    //unshift to add products to the begining of the array
+    products.unshift (req.body);
     // sends the req.body object from form (products/new)
     // res.send(req.body);
     // redirect to appended products page
