@@ -12,8 +12,20 @@ const products = require('./models/product_model.js')
 app.use(express.static('public'))
 
 
+//body parser middleware, sets up request body, data is parsed by middleware from client
+// note that this is a little convoluted literally, but works in this way
+app.use(express.urlencoded({extended:false}))
+
 // application view engine:
 app.set('view engine', 'ejs');
+
+
+// Product "new" route - get - serve form for creating a new product
+
+app.get('/products/new', (req, res) => {
+    res.render('new.ejs');
+})
+
 
 //product show route - GET - one product
 
@@ -38,7 +50,13 @@ app.get('/products/', (req, res) => {
 
 //home route '/'
 app.get('/', (request, response) =>{
-    response.send('Welcome to Sell-it-Up')
+    response.send('Welcome to Sell-it-Up');
+})
+
+// "create" route (post route) - handles POST requests -> request body (new product data)
+
+app.post('/products', (req, res) => {
+    res.send("hitting post route - products");
 })
 
 // express server: initializes the server, app.listen allows computer to receive requests at http://localhost:4000/
